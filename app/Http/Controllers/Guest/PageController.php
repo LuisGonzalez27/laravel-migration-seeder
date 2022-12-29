@@ -10,7 +10,7 @@ class PageController extends Controller
 {
     public function index()
     {
-        $trains = Train::orderBy('orario_partenza', 'asc')->get();
+        $trains = Train::where('cancellato', 0)->get();
         // dd($trains);
         return view('home', compact('trains'));
     }
